@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte Online - Escola de Formação .Edu</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            font-weight: normal;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        .other-input {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .required {
+            color: var(--accent-color);
+        }
+        
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 15px;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            textarea,
+            select {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Escola de Formação .Edu</div>
+            <h1>Guia de Ocorrência - Suporte Online</h1>
+        </header>
+        
+        <div class="form-container">
+            <p>Para garantir um atendimento organizado, ágil e rastreável, criamos este canal oficial para registro de ocorrências relacionadas ao uso da plataforma AVA (Ambiente Virtual de Aprendizagem) e ao Sistema Acadêmico PERSEUS.</p>
+            <p>Por favor, preencha o formulário abaixo para formalizar seu chamado:</p>
+            
+            <form id="supportForm">
+                <div class="form-section">
+                    <h2 class="section-title">1. DADOS PESSOAIS <span class="required">*</span></h2>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail utilizado para matrícula:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone para contato (com DDD):</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">2. TIPO DE PLATAFORMA <span class="required">*</span></h2>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="plataforma" value="Sistema Acadêmico PERSEUS" required>
+                            Sistema Acadêmico PERSEUS
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="plataforma" value="Ambiente Virtual de Aprendizagem (AVA)">
+                            Ambiente Virtual de Aprendizagem (AVA)
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="plataforma" value="Outro" id="plataforma-outro">
+                            Outro:
+                        </label>
+                    </div>
+                    
+                    <div class="form-group other-input" id="plataforma-outro-input">
+                        <input type="text" name="plataforma_outro" placeholder="Especifique outra plataforma">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">3. TIPO DE OCORRÊNCIA <span class="required">*</span></h2>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Não recebi link de matrícula ou acesso" required>
+                            Não recebi link de matrícula ou acesso
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Acessei o link de matrícula mas não consigo anexar os documentos">
+                            Acessei o link de matrícula mas não consigo anexar os documentos
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Acessei o link de matrícula mas não consigo assinar o contrato">
+                            Acessei o link de matrícula mas não consigo assinar o contrato
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Dados incorretos no sistema">
+                            Dados incorretos no sistema
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Não consigo acessar o AVA">
+                            Não consigo acessar o AVA
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Atividade ou conteúdo não disponível">
+                            Atividade ou conteúdo não disponível
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Problema com avaliação diagnóstica">
+                            Problema com avaliação diagnóstica
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" name="ocorrencia" value="Outro" id="ocorrencia-outro">
+                            Outro:
+                        </label>
+                    </div>
+                    
+                    <div class="form-group other-input" id="ocorrencia-outro-input">
+                        <input type="text" name="ocorrencia_outro" placeholder="Especifique outro tipo de ocorrência">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">4. DESCRIÇÃO DETALHADA DO PROBLEMA <span class="required">*</span></h2>
+                    <div class="form-group">
+                        <label for="descricao">Descreva com clareza o que está ocorrendo. Inclua informações como URLs, nomes de telas, mensagens de erro, etc.</label>
+                        <textarea id="descricao" name="descricao" required></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="section-title">5. DATA DO OCORRIDO <span class="required">*</span></h2>
+                    <div class="form-group">
+                        <input type="date" id="data_ocorrido" name="data_ocorrido" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">Enviar Solicitação</button>
+                </div>
+            </form>
+            
+            <div class="alert alert-success" id="successAlert">
+                Sua solicitação foi enviada com sucesso! Em breve você receberá um e-mail de confirmação com o número do protocolo.
+            </div>
+            
+            <div class="alert alert-warning" id="warningAlert">
+                <strong>Atenção:</strong> Nosso time de suporte está atendendo a uma grande demanda de solicitações e, por isso, alguns retornos podem levar até 72 horas úteis. Garantimos, no entanto, que todas as ocorrências serão respondidas e resolvidas com a máxima agilidade possível.
+            </div>
+        </div>
+        
+        <footer>
+            <p>Encaminhe esta Guia de Ocorrência preenchida para este canal oficial: 📧 E-mail: SUCESSODOPROFESSOR@pontoedu.com.br</p>
+            <p>© 2023 Escola de Formação .Edu - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        // Mostrar campos "Outro" quando selecionados
+        document.getElementById('plataforma-outro').addEventListener('change', function() {
+            document.getElementById('plataforma-outro-input').style.display = this.checked ? 'block' : 'none';
+        });
+        
+        document.getElementById('ocorrencia-outro').addEventListener('change', function() {
+            document.getElementById('ocorrencia-outro-input').style.display = this.checked ? 'block' : 'none';
+        });
+        
+        // Envio do formulário usando FormSubmit
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar formulário
+            if (this.checkValidity()) {
+                // Usando FormSubmit.co (serviço gratuito) para enviar o formulário
+                this.action = 'https://formsubmit.co/SUCESSODOPROFESSOR@pontoedu.com.br';
+                this.method = 'POST';
+                
+                // Adicionar campos extras para personalizar o e-mail
+                const subjectInput = document.createElement('input');
+                subjectInput.type = 'hidden';
+                subjectInput.name = '_subject';
+                subjectInput.value = 'Nova Solicitação de Suporte - ' + document.getElementById('nome').value;
+                this.appendChild(subjectInput);
+                
+                const replyToInput = document.createElement('input');
+                replyToInput.type = 'hidden';
+                replyToInput.name = '_replyto';
+                replyToInput.value = document.getElementById('email').value;
+                this.appendChild(replyToInput);
+                
+                const templateInput = document.createElement('input');
+                templateInput.type = 'hidden';
+                templateInput.name = '_template';
+                templateInput.value = 'table';
+                this.appendChild(templateInput);
+                
+                // Enviar formulário
+                this.submit();
+                
+                // Mostrar mensagens de sucesso e alerta
+                document.getElementById('successAlert').style.display = 'block';
+                document.getElementById('warningAlert').style.display = 'block';
+                
+                // Rolagem suave para as mensagens
+                document.getElementById('successAlert').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        });
+    </script>
+</body>
+</html>
